@@ -10,16 +10,16 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "restaurant")
+@Table(name = "restaurants")
 public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    @Column(name = "restaurant_name", nullable = false)
-    private String restaurantName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-    @Column(name = "restaurant_location", nullable = false)
-    private String restaurantLocation;
+    @Column(name = "location", nullable = false)
+    private String location;
 }
