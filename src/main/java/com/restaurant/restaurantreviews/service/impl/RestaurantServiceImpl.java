@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.restaurant.restaurantreviews.exception.ResourceNotFoundException;
 import com.restaurant.restaurantreviews.model.Restaurant;
 import com.restaurant.restaurantreviews.repository.RestaurantRepository;
 import com.restaurant.restaurantreviews.service.RestaurantService;
@@ -29,6 +30,12 @@ public class RestaurantServiceImpl implements RestaurantService{
     @Override
     public List<Restaurant> getRestaurants() {
         return restaurantRepository.findAll();
+    }
+
+    @Override
+    public Restaurant getRestaurantById(Long restaurantId) {
+        return restaurantRepository.findById(restaurantId)
+        .orElseThrow(()-> new ResourceNotFoundException("Restaurant", restaurantId));
     }
     
 }

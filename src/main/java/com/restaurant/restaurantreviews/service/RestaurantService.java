@@ -7,4 +7,5 @@ import com.restaurant.restaurantreviews.model.Restaurant;
 public interface RestaurantService {
     Restaurant saveRestaurant(Restaurant restaurant);
     List<Restaurant> getRestaurants();
+    Restaurant getRestaurantById(Long restaurantId);
 }
