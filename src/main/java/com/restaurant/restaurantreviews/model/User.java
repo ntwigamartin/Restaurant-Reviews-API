@@ -26,6 +26,6 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "user")
-    private List<Review> reviews;
+    // @OneToMany(mappedBy = "user")
+    // private List<Review> reviews;
 }

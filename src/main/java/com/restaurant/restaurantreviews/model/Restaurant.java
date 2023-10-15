@@ -27,6 +27,6 @@ public class Restaurant {
     @Column(name = "location", nullable = false)
     private String location;
 
-    @OneToMany(mappedBy = "restaurant")
-    private List<Review> reviews;
+    // @OneToMany(mappedBy = "restaurant")
+    // private List<Review> reviews;
 }

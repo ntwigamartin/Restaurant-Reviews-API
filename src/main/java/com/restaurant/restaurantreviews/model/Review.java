@@ -19,7 +19,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "review")
+    @Column(name = "comment")
     private String comment;
 
     @ManyToOne
@@ -29,4 +29,10 @@ public class Review {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    // @Column(name = "restaurant_id", insertable = false, updatable = false)
+    // private Long restaurantId;
+
+    // @Column(name = "user_id", insertable = false, updatable = false)
+    // private Long userId;
 }
