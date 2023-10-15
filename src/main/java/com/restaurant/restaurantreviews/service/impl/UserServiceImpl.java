@@ -1,5 +1,7 @@
 package com.restaurant.restaurantreviews.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.restaurant.restaurantreviews.model.User;
@@ -18,6 +20,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public User saveUser(User user) {
         return userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return userRepository.findAll();
     }
     
 }

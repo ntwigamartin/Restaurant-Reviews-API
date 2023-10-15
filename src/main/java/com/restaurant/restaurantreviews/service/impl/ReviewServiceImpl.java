@@ -1,5 +1,7 @@
 package com.restaurant.restaurantreviews.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.restaurant.restaurantreviews.exception.ResourceNotFoundException;
@@ -15,8 +17,6 @@ import com.restaurant.restaurantreviews.service.ReviewService;
 public class ReviewServiceImpl implements ReviewService{
 
     private ReviewRepository reviewRepository;
-    private RestaurantRepository restaurantRepository;
-    private UserRepository userRepository;
     
     public ReviewServiceImpl(ReviewRepository reviewRepository) {
         this.reviewRepository = reviewRepository;
@@ -24,17 +24,12 @@ public class ReviewServiceImpl implements ReviewService{
 
     @Override
     public Review saveReview(Review review) {
-        // Review newReview = new Review();
-        // Restaurant restaurant = restaurantRepository.findById(restaurantId)
-        // .orElseThrow(()-> new ResourceNotFoundException("Restaurant", restaurantId));
-
-        // User user = userRepository.findById(userId)
-        // .orElseThrow(()-> new ResourceNotFoundException("User", userId));
-        // newReview.setComment(comment);
-        // newReview.setRestaurant(restaurant);
-        // newReview.setUser(user);
-        // System.out.println(review);
         return reviewRepository.save(review);
+    }
+
+    @Override
+    public List<Review> getReviews() {
+        return reviewRepository.findAll();
     }
     
 }

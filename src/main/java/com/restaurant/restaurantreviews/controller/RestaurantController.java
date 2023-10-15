@@ -1,7 +1,10 @@
 package com.restaurant.restaurantreviews.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +26,11 @@ public class RestaurantController {
     @PostMapping
     public ResponseEntity<Restaurant> createRestaurant(@RequestBody Restaurant restaurant) {
         return new ResponseEntity<Restaurant>(restaurantService.saveRestaurant(restaurant), HttpStatus.CREATED);
+    }
+
+    // Get all restaurants
+    @GetMapping()
+    public ResponseEntity<List<Restaurant>> getRestaurants() {
+        return new ResponseEntity<List<Restaurant>>(restaurantService.getRestaurants(), HttpStatus.OK);
     }
 }

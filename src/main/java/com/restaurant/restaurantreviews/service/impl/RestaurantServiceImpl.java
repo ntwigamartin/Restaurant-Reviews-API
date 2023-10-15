@@ -1,5 +1,7 @@
 package com.restaurant.restaurantreviews.service.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.restaurant.restaurantreviews.model.Restaurant;
@@ -22,6 +24,11 @@ public class RestaurantServiceImpl implements RestaurantService{
         newRestaurant.setLocation(restaurant.getLocation());
         restaurantRepository.save(newRestaurant);
         return newRestaurant;
+    }
+
+    @Override
+    public List<Restaurant> getRestaurants() {
+        return restaurantRepository.findAll();
     }
     
 }
