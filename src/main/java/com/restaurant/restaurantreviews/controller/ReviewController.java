@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,5 +72,11 @@ public class ReviewController {
     @GetMapping("{id}")
     public ResponseEntity<Review> getReviewById(@PathVariable("id") Long reviewId) {
         return new ResponseEntity<>(reviewService.getReviewById(reviewId), HttpStatus.OK);
+    }
+
+    // update a review
+    @PutMapping("{id}")
+    public ResponseEntity<Review> updateReview(@PathVariable("id") Long reviewId, @RequestBody Review review) {
+        return new ResponseEntity<Review>(reviewService.updateReview(reviewId, review), HttpStatus.OK);
     }
 }

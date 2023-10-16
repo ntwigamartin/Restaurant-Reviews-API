@@ -7,11 +7,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restaurant.restaurantreviews.model.Restaurant;
+import com.restaurant.restaurantreviews.model.User;
 import com.restaurant.restaurantreviews.service.RestaurantService;
 
 @RestController
@@ -39,5 +41,11 @@ public class RestaurantController {
     @GetMapping("{id}")
     public ResponseEntity<Restaurant> getRestaurantById(@PathVariable("id") Long restaurantId) {
         return new ResponseEntity<Restaurant>(restaurantService.getRestaurantById(restaurantId), HttpStatus.OK);
+    }
+
+    // update restaurant
+    @PutMapping("{id}")
+    public ResponseEntity<Restaurant> updateRestaurant(@PathVariable("id") Long restaurantId, @RequestBody Restaurant restaurant) {
+        return new ResponseEntity<Restaurant>(restaurantService.updateRestaurant(restaurantId, restaurant), HttpStatus.OK);
     }
 }

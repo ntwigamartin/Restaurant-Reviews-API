@@ -8,4 +8,5 @@ public interface RestaurantService {
     Restaurant saveRestaurant(Restaurant restaurant);
     List<Restaurant> getRestaurants();
     Restaurant getRestaurantById(Long restaurantId);
+    Restaurant updateRestaurant(Long restaurantId, Restaurant restaurant);
 }

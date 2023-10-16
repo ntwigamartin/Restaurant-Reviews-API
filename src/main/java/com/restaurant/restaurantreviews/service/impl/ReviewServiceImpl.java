@@ -33,5 +33,17 @@ public class ReviewServiceImpl implements ReviewService{
         return reviewRepository.findById(reviewId)
         .orElseThrow(()-> new ResourceNotFoundException("Review", reviewId));
     }
+
+    @Override
+    public Review updateReview(Long reviewId, Review review) {
+        Review reviewToUpdate = reviewRepository.findById(reviewId)
+        .orElseThrow(()-> new ResourceNotFoundException("Review", reviewId));
+
+        if (review.getComment() != null) {
+            reviewToUpdate.setComment(review.getComment());
+        }
+        reviewRepository.save(reviewToUpdate);
+        return reviewToUpdate;
+    }
     
 }
