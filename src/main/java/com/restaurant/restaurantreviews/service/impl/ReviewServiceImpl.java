@@ -45,5 +45,13 @@ public class ReviewServiceImpl implements ReviewService{
         reviewRepository.save(reviewToUpdate);
         return reviewToUpdate;
     }
+
+    @Override
+    public void deleteReview(Long reviewId) {
+        Review reviewToDelete = reviewRepository.findById(reviewId)
+        .orElseThrow(()-> new ResourceNotFoundException("Review", reviewId));
+
+        reviewRepository.delete(reviewToDelete);
+    }
     
 }

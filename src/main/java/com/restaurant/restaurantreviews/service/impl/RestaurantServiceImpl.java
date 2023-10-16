@@ -54,5 +54,13 @@ public class RestaurantServiceImpl implements RestaurantService{
         restaurantRepository.save(restaurantToUpdate);
         return restaurantToUpdate;
     }
+
+    @Override
+    public void deleteRestaurant(Long restaurantId) {
+        Restaurant restaurant = restaurantRepository.findById(restaurantId)
+        .orElseThrow(()-> new ResourceNotFoundException("Restaurant", restaurantId));
+
+        restaurantRepository.delete(restaurant);
+    }
     
 }

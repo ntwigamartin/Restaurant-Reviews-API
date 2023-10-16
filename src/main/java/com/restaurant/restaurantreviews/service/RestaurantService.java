@@ -9,4 +9,5 @@ public interface RestaurantService {
     List<Restaurant> getRestaurants();
     Restaurant getRestaurantById(Long restaurantId);
     Restaurant updateRestaurant(Long restaurantId, Restaurant restaurant);
+    void deleteRestaurant(Long restaurantId);
 }

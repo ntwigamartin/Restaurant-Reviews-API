@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -78,5 +79,12 @@ public class ReviewController {
     @PutMapping("{id}")
     public ResponseEntity<Review> updateReview(@PathVariable("id") Long reviewId, @RequestBody Review review) {
         return new ResponseEntity<Review>(reviewService.updateReview(reviewId, review), HttpStatus.OK);
+    }
+
+    // Delete a review
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteReview(@PathVariable("id") Long reviewId) {
+        reviewService.deleteReview(reviewId);
+        return new ResponseEntity<String>("Review with id " + reviewId + " deleted successfully", HttpStatus.OK);
     }
 }
